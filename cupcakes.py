@@ -41,7 +41,6 @@ class Large(Cupcake):
     size = "large"
 
 
-
 def read_csv(file):
     with open(file) as csvfile:
         reader = csv.DictReader(csvfile)
@@ -76,6 +75,18 @@ cupcake_list = [
     cupcake2,
     cupcake3
 ]
+
+def get_cupcakes(file):
+    with open(file) as csvfile:
+        read = csv.DictReader(csvfile)
+        read = list(read)
+        return read
+    
+def find_cupcake(file, name):
+    for cupcake in get_cupcakes(file):
+        if cupcake['name'] == name:
+            return cupcake
+    return None
 
 # def write_new_csv(file, cupcakes):
 #     with open(file, "w", newline="\n") as csvfile:
